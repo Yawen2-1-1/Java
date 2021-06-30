@@ -2,9 +2,10 @@
 The repository is used to show the source code in Java what I want to share.
 
 # P2P Lending Platform
-Description: Via eliminating the intermediary role of financial institutions, the platform not only saves the complicated procedures
-             and application time for bank loans, but also allows lenders to earn a higher remuneration than the bank's fixed deposit
-             interest rate, which can effectively help SMEs in financing and improve the purpose of idle capital utilization in the society.
+Description: Via eliminating the intermediary role of financial institutions, the platform
+  * Saves the complicated procedures and application time for bank loans
+  * Allows lenders to earn a higher remuneration than the bank's fixed deposit interest rate, which can
+    effectively help SMEs in financing and improve the purpose of idle capital utilization in the society.
 
 ### Functions:
 - [x] Login.
@@ -24,13 +25,14 @@ Description: Via eliminating the intermediary role of financial institutions, th
 - [x] Control the exception when the input mismatched.
 - [x] Database Backup file. (p2p_backup.sql)
 
-### MySQL
-![image](https://github.com/Yawen2-1-1/Java/blob/main/P2P/mysql.jpg)
+### Entity Relation Model:
+
+![image](https://github.com/Yawen2-1-1/Java/blob/main/P2P/Images/p2p_ERModel.jpg)
 
 ### Class diagram:
 
-![image](https://github.com/Yawen2-1-1/Java/blob/main/P2P/P2P.jpg)
+![image](https://github.com/Yawen2-1-1/Java/blob/main/P2P/Images/P2P.jpg)
 
 ### Execution result:
 
-![image](https://github.com/Yawen2-1-1/Java/blob/main/P2P/p2p_execution.jpg)
+![image](https://github.com/Yawen2-1-1/Java/blob/main/P2P/Images/p2p_execution.jpg)
