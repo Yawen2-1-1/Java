@@ -18,7 +18,7 @@ public class LoanCaseWithInterest extends LoanCase {
                 "values ('" + applicaionID + "', '" + getBorrower() + "', " + getAmount() + ", '" +
                 getPurpose() + "', " + totalRepayment + ", '" + getRepaymentMethod() + "', '" +
                 getAccount() + "')";
-        DBLoan dbLoan = new DBLoan();
+        DBLoan dbLoan = getDbLoan();
         if (dbLoan.LoanCaseOperation(applicaionID, statement, 1)) {
             System.out.println("\n新增有息借款案件成功！");
         } else {
