@@ -51,6 +51,8 @@ public class Main {
                     System.out.println("\n歡迎 " + register.getName() + " ,這裡是功能選單：");
                     menu.printMenu(account);
                 }
+            } else {
+                System.out.println("指令錯誤：功能尚未開啟");
             }
         } catch (InputMismatchException e) {
             System.out.println("輸入錯誤：選擇功能只接受整數");
