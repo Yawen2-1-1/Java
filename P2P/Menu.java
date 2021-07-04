@@ -5,13 +5,15 @@ import java.util.Scanner;
 
 public class Menu {
     private LoanCase loanCase;
+    private LoanCaseQuery loanCaseQuery;
 
     public void printMenu(String account) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("功能選單：\n1. 有息借款\n2. 無息借款\n選擇功能：");
+        System.out.print("功能選單：\n1. 有息借款\n2. 無息借款\n3. 單筆案件查詢\n選擇功能：");
         try {
             int choice = scanner.nextInt();
 
+            String applicationID;
             String borrower;
             int amount;
             String purpose;
@@ -19,9 +21,9 @@ public class Menu {
             float interest;
             int repaymentDay;
 
-            System.out.println("\n填寫申請單資料：");
             switch (choice) {
                 case 1: // 有息借款
+                    System.out.println("\n填寫申請單資料：");
                     System.out.print("借款人：");
                     borrower = scanner.next();
                     System.out.print("借款金額：");
@@ -40,6 +42,7 @@ public class Menu {
                     loanCase.InsertLoanCase();
                     break;
                 case 2: // 無息借款
+                    System.out.println("\n填寫申請單資料：");
                     System.out.print("借款人：");
                     borrower = scanner.next();
                     System.out.print("借款金額：");
@@ -55,6 +58,16 @@ public class Menu {
                             repaymentMethod, repaymentDay);
                     loanCase.InsertLoanCase();
                     break;
+                case 3: // 單筆案件查詢
+                    System.out.print("案件編號：");
+                    applicationID = scanner.next();
+
+                    System.out.println("\n輸出申請單資料：");
+                    loanCaseQuery = new LoanCaseQuery(applicationID);
+                    loanCaseQuery.QueryLoanCase();
+                    break;
+                default:
+                    System.out.println("指令錯誤：功能尚未開啟");
             }
         } catch (InputMismatchException e) {
             System.out.println("輸入錯誤：選擇功能只接受整數！");
