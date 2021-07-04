@@ -13,7 +13,7 @@ public class LoanCaseWithoutInterest extends LoanCase{
                 "values ('" + applicaionID + "', '" + getBorrower() + "', " + getAmount() + ", '" +
                 getPurpose() + "', " + getAmount() + ", '" + getRepaymentMethod() + "', '" +
                 getAccount() + "')";
-        DBLoan dbLoan = new DBLoan();
+        DBLoan dbLoan = getDbLoan();
         if (dbLoan.LoanCaseOperation(applicaionID, statement, 1)) {
             System.out.println("\n新增無息借款案件成功！");
         } else {
