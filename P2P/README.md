@@ -18,7 +18,7 @@ The repository is used to show the source code in Java what I want to share.
 - [ ] Update a loan case without interest.
 - [ ] Delete a loan case with interest.
 - [ ] Delete a loan case without interest.
-- [ ] Query the specific loan case.
+- [x] Query the specific loan case.
 
 ## Special Handlers:
 - [x] Connect with MySQL.
