@@ -17,12 +17,16 @@ public class DBLoan extends  DBConnect {
         try {
             Connection con = DriverManager.getConnection(host, uName, uPass);
             Statement st = con.createStatement();
-            st.executeUpdate(statement);
+            if (mode == 1 || mode == 2) {
+                st.executeUpdate(statement);
+            }
             String sql = null;
             if (mode == 1) {
                 sql = "select * from `t_application`";
             } else if (mode == 2) {
                 sql = "select * from `t_loancaseinfo`";
+            } else if (mode == 3) {
+                sql = "select * from `t_application`, `t_loancaseinfo`";
             }
 
             ResultSet rs = st.executeQuery(sql);
@@ -40,6 +44,33 @@ public class DBLoan extends  DBConnect {
                         exist = true;
                         break;
                     }
+                }
+            } else if (mode == 3) {
+                while (rs.next()) {
+                    if (rs.getString("ApplicationID").equals(applicationID)) {
+                        System.out.println("申請單編號：" + rs.getString("ApplicationID"));
+                        System.out.println("借款人：" + rs.getString("Borrower"));
+                        System.out.println("借款金額：" + rs.getInt("Amount"));
+                        System.out.println("借款目的：" + rs.getString("PurposeforLoan"));
+                        System.out.println("總計還款金額：" + rs.getInt("TotalRepaymentAmount"));
+                        System.out.println("還款帳號：" + rs.getString("RepaymentMethod"));
+
+                        exist = true;
+                        break;
+                    }
+                }
+
+                while (rs.next()) {
+                    if (rs.getString("CaseNo").equals(applicationID)) {
+                        System.out.println("借款利率：" + rs.getFloat("Interest"));
+                        System.out.println("還款日：" + rs.getInt("RepaymentDate") + " 天後開始");
+                        System.out.println("借款日期：" + rs.getDate("LoanDate"));
+
+                        exist = true;
+                        break;
+                    }
+
+                    exist = false;
                 }
             }
 
