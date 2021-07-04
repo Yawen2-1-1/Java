@@ -10,6 +10,7 @@ public abstract class LoanCase {
     private String purpose;
     private String repaymentMethod;
     private int repaymentDay;
+    private DBLoan dbLoan;
 
     public LoanCase (String account, String borrower, int amount, String purpose,
                      String repaymentMethod, int repaymentDay) {
@@ -24,7 +25,6 @@ public abstract class LoanCase {
 
     public abstract void InsertLoanCase ();
 
-    // 以亂數產生申請單編號
     public void setApplicationID () {
         Random random = new Random();
         String caseNo = Integer.toString(random.nextInt(100) + 1000);
@@ -59,4 +59,6 @@ public abstract class LoanCase {
     public int getRepaymentDay() {
         return this.repaymentDay;
     }
+
+    public DBLoan getDbLoan() { return this.dbLoan; }
 }
